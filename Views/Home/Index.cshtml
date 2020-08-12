@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Welcome";
+}
+@model List<Dish>
+
+<div class="container pt-5">
+    <div class="row">
+        <h1>Welcome to CRUDelicious</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-6 border-bottom border-dark">
+            <p>Check out some recent dishes!</p>
+        </div>
+
+        <div class="col-4 offset-2">
+            <a asp-action="New">Add a Dish</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <ul class="list-group">
+            @foreach (Dish dish in Model)
+            {
+                <li class="list-group-item">
+                    <a asp-action="Details" asp-route-dishId="@dish.DishId">@dish.Name</a> by @dish.Chef
+                </li>
+            }
+        </ul>
+    </div>
+</div>

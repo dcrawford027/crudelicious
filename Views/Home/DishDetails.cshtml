@@ -1,0 +1,32 @@
+@{
+    ViewData["Title"] = "Details";
+}
+@model Dish
+
+<div class="container pt-5">
+    <div class="row">
+        <a asp-action="Index">Home</a>
+    </div>
+
+    <h1 class="text-center">@Model.Name</h1>
+    <div class="border-bottom border-dark">
+        <h3 class="text-center">@Model.Chef</h3>
+    </div>
+
+    <div class="mb-5">
+        <p class="text-center">@Model.Description</p>
+    </div>
+
+    <div>
+        <p><span class="font-weight-bold">Calories: </span>@Model.Calories</p>
+        <p><span class="font-weight-bold">Tastiness: </span>@Model.Tastiness</p>
+    </div>
+
+    <div class="row">
+        <form asp-action="Delete" method="POST" class="mr-5">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+
+        <a asp-action="Edit" asp-route-dishId="@Model.DishId" class="btn btn-info">Edit</a>
+    </div>
+</div>
